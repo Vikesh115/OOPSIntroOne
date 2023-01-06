@@ -3,6 +3,11 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        // can we overload main method in java?
+        // Yes, We can overload the main method in java but JVM only calls
+        // the original main method, it will never call our overloaded main method.
+        System.out.println("Original main method is caling"); 
+        
         // create an object and call default or another type of constructor
         // Objects take Heap Space
         // Human vikesh = new Human(); // object 1
@@ -19,12 +24,40 @@ public class Main {
 
         // Male Alpha = new Male();
         // Alpha.sleep();
-        
+
         // Scorpio fav = new Scorpio();
         // fav.Intro();
-        FullTime work = new FullTime();
-        work.Employeework();
 
+        // mahindra fav = new mahindra();
+        // fav.run(200,100);
+
+        // FullTime work = new FullTime();
+        // work.Employeework();
+
+         dog goldy = new dog();
+        goldy.speak();
+
+    }
+
+    public static void main(int args) {
+        System.out.println("main() overloaded"
+                + " method 1 Executing");
+    }
+
+    // Overloaded main method 2
+    // According to us this overloaded method
+    // Should be executed when character is passed
+    public static void main(char args) {
+        System.out.println("main() overloaded"
+                + " method 2 Executing");
+    }
+
+    // Overloaded main method 3
+    // According to us this overloaded method
+    // Should be executed when double value is passed
+    public static void main(Double[] args) {
+        System.out.println("main() overloaded"
+                + " method 3 Executing");
     }
 }
 
@@ -84,11 +117,11 @@ class Human {
 
 }
 
-//Inheritence
+// Inheritence
 
-class Scorpio extends mahindra{
-    
-    void Intro(){
+class Scorpio extends mahindra {
+
+    void Intro() {
         System.out.println("This is Scorpio");
     }
 }
@@ -109,6 +142,16 @@ class car {
         System.out.println("Car is running");
     }
 
+    // Method overloading and compile time polymorphism
+    void run(int speed) {
+        System.out.println("Car is runningnat speed " + speed);
+    }
+
+    int run(int distance,int speed) {
+        System.out.println("Car is runningnat at speed " + speed + " and covers " + distance);
+        return 0;
+    }
+
     void stop() {
         System.out.println("Car is stoping");
     }
@@ -116,24 +159,50 @@ class car {
 
 // Hierarical Inhertence
 
-class FullTime extends Employee{
+class FullTime extends Employee {
     int salary;
+
     void FullTimeWork() {
-    System.out.println("I am Full Time Employee");
-  }
+        System.out.println("I am Full Time Employee");
+    }
 }
-class Intern extends Employee{
+
+class Intern extends Employee {
     int salary;
+
     void InternWork() {
         System.out.println("I am Intern");
     }
 }
-class Employee{
-    //data memeber
+
+class Employee {
+    // data memeber
     int salary;
-    
-    //data member function
-    void Employeework(){
+
+    // data member function
+    void Employeework() {
         System.out.println(" I am Employee");
+    }
+}
+
+// Method overriding and run time polymorphism
+class lion extends Animal{ 
+  void speak() {
+  System.out.println("Roar");
+  }
+}
+class dog extends Animal{
+
+    void speak() {
+        System.out.println("woof");
+    }
+} 
+
+class Animal{
+    int age;
+    int weight;
+
+    void speak(){
+        System.out.println("hayye");
     }
 }
